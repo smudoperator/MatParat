@@ -1,0 +1,20 @@
+﻿@model MatParat2.Models.DinnerPlanViewModel
+
+@{
+}
+
+<h1> Dinner Plan </h1>
+
+@foreach (var pair in Model.Dinners)
+{
+    <h2>@pair.Key</h2>
+    <table>
+        @foreach (var dinner in pair.Value)
+        {
+            <tr>
+                <td> @dinner.Name <br> @dinner.Description </td>
+                <td> <img src="data:image/jpeg;base64,@Convert.ToBase64String(dinner.ImageData)" alt="Dinner Image" style="max-width: 100px; border-radius: 25%" /> </td>
+            </tr>
+        }
+    </table>
+}

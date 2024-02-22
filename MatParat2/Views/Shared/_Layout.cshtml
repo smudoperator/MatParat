@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MatParat2</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MatParat2.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="bg-green-800 border-b border-gray-200 h-16">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <div>
+                    <a class="text-white pb-3 navbar-brand font-bold text-3xl" asp-area="" asp-controller="Home" asp-action="Index">MatParat</a>
+                </div>
+
+                <div class="hidden md:block">
+                    <ul class="space-x-5 text-xl text-white">
+                        <li class="inline-block">
+                            <a class="pb-3 border-b-2 border-transparent hover:border-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        <li class="inline-block">
+                            <a class="pb-3 border-b-2 border-transparent hover:border-white" asp-area="" asp-controller="Dinners" asp-action="Index">Dinners</a>
+                        </li>
+                        
+                        <li class="inline-block">
+                            <a class="pb-3 border-b-2 border-transparent hover:border-white" asp-area="" asp-controller="DinnerPlan" asp-action="Create"> Dinner Plan </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="block md:hidden">
+                    <button class="text-gray-800 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto px-4 py-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-t border-gray-200 text-sm text-gray-600">
+        <div class="container mx-auto px-4 py-4">
+            &copy; 2024 - MatParat2 - <a href="#">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

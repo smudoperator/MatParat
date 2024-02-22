@@ -1,0 +1,40 @@
+﻿@model List<MatParat2.Models.Domain.Dinner>
+
+@{
+}
+
+<button type="button" onclick="location.href='@Url.Action("Add", "Dinners")'" class="text-white bg-green-800 hover:bg-green-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-800 dark:hover:bg-green-700">
+    Add new dinner
+</button>
+
+
+
+<h1> Dinners </h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> Name </th>
+            <th> Type </th>
+            <th> Ingredients </th>
+            <th> Description </th>
+            <th> Id </th>
+            <th> Presentation </th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dinner in Model)
+        {
+            <tr>
+                <td> @dinner.Name </td>
+                <td> @dinner.Type </td>
+                <td> @dinner.Ingredients </td>
+                <td> @dinner.Description </td>
+                <td> @dinner.Id </td>
+                <td> <img src="data:image/jpeg;base64,@Convert.ToBase64String(dinner.ImageData)" alt="Dinner Image" style="max-width: 100px;" /> </td>
+                <td><a href="Dinners/View/@dinner.Id"> Edit </a></td>
+            </tr>
+        }
+    </tbody>
+</table>

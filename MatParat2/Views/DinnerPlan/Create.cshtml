@@ -1,0 +1,43 @@
+﻿@model CreateDinnerPlanViewModel
+
+
+<h1> Plan Dinner </h1>
+<form method="post" action="Create">
+
+    <div class="form-group">
+        <label for=""> Day </label>
+        <select class="form-control" asp-for="StartDay">
+            @foreach (DayOfWeek day in Enum.GetValues(typeof(DayOfWeek)))
+            {
+                <option value="@day"> @day </option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for=""> How many days? </label>
+        <input type="int" class="form-control" asp-for="NumberOfDays">
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="tacoFridayCheckbox" asp-for="TacoFriday">
+        <label class="form-check-label" for="tacoFridayCheckbox">
+            Taco Friday?
+        </label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="tacoFridayCheckbox" asp-for="SameIngredients">
+        <label class="form-check-label" for="sameIngredientsCheckbox">
+            Use same ingredients? (this is still in development)
+        </label>
+    </div>
+
+    <div class="mb-3">
+        <label for=""> Btw how much is the fish? </label>
+        <input type="int" class="form-control" asp-for="HowManyFish">
+    </div>
+
+    <button type="submit" class="btn btn-primary"> Submit </button>
+</form>
+
